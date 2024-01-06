@@ -1,37 +1,40 @@
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+from replit import clear
+#HINT: You can call clear() to clear the output in the console.
 import art
-print(art.logo)
-def caesar(start_text, shift_amount, cipher_direction):
-  end_text = ""
-  if cipher_direction == "decode":
-    shift_amount *= -1
-  for char in start_text:
-    
-   
-    if char in alphabet:
-      position = alphabet.index(char)
-      new_position = (position + shift_amount)
-      end_text += alphabet[new_position]
-    else:
-      end_text+=char
-    
-    
-    
-  print(f"Here's the {cipher_direction}d result: {end_text}")
+print(art.logo) 
 
-choice=True
-while choice:
-  text = input("Type your message:\n").lower()
-  shift = int(input("Type the shift number:\n"))
-  shift=shift%26
+bids = {}
+more_members=False
+def highest_bidder(record):
+  highest_bid = 0
+  winner = ""
+  for bidder in record:
+     
+     amount = record[bidder]
+     if amount>highest_bid:
+       winner=bidder
+       highest_bid=amount
+  print(f"the winner is {winner} with a bid of ${highest_bid}")
 
- 
 
-  caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
-  result=input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
-  if result=="no":
-    choice=Fals
-    print("Goodbye")
-
+      
+while not more_members:
+  name=input("Whats your name? ")
+  bid=int(input("Whats your bid? "))
+  bids[name]=bid
+  choice=input("Are there more members? ")
+  if choice== "yes":
+    clear()
   
+  elif choice =="no":
+    more_members=True
+    highest_bidder(bids)
+  else:
+    print("invalid input")
+    
+    
+
+
+    
 
